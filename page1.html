@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day Card</title>
+    <style>
+        body {
+            background-color: #d3b3e0; /* Light Purple */
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+        }
+
+        #card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            margin: 50px auto;
+            max-width: 400px;
+        }
+
+        #message {
+            font-size: 18px;
+            color: #010101;
+            margin-bottom: 20px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .response-button {
+            background-color: cornflowerblue; /* Light Blue */
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .response-button:hover {
+            background-color: #4682b4; /* Darker Blue on hover */
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="card">
+        <h2 id="message">Would you be my Valentine?</h2>
+        <img src="ask.jpg" alt="Valentine" width="300" height="200">
+        <p> </p>
+        <p> Try mo lang pindutin yung "No". Sige ka, hmmmm....</p>
+        <div class="button-container">
+            <button id="yesButton" class="response-button" onclick="handleResponse('yes')">Yessss, gustong gusto ko!</button>
+            <button id="noButton" class="response-button" onclick="handleResponse('no')">Nooo, ayoko</button>
+        
+        </div>
+    </div>
+
+    <script>
+        function handleResponse(response) {
+            if (response === 'yes') {
+                window.location.href = 'page2.html'; // Redirect to the second page
+            } else if (response === 'no') {
+                moveButton();
+            }
+        }
+
+        function moveButton() {
+            var noButton = document.getElementById('noButton');
+            var card = document.getElementById('card');
+
+            // Ask the user "Bat ayaw mo?" and redirect to YouTube after answering
+            var interval = setInterval(function () {
+                var answer = prompt("Pinindot mo talga. Bat ayaw mo?");
+                if (answer) {
+                    alert("Ah, kaya pala. Iba na siguro gusto mo, hindi na ako. Sakit mo naman :( ");
+                    clearInterval(interval);
+                    // Redirect to a YouTube link with a specific starting time
+                    window.location.href = 'https://www.youtube.com/watch?v=1sWr1UmdGx8&t=2m35s';
+                }
+            }, 1000); // Change the interval as needed
+        }
+    </script>
+    
+</body>
+</html>
